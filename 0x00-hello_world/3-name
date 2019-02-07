@@ -1,0 +1,2 @@
+#!/bin/bash
+export $CFILE="hello.c" | gcc -E $CFILE > cisfun.exe

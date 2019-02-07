@@ -1,0 +1,2 @@
+#!/bin/bash
+export $CFILE="intel.c" |gcc $CFILE -S -masm=intel > intel.s

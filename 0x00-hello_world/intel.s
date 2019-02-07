@@ -1,5 +1,8 @@
 	.file	"intel.c"
 	.intel_syntax noprefix
+	.section	.rodata
+.LC0:
+	.string	"Hello world"
 	.text
 	.globl	main
 	.type	main, @function
@@ -11,6 +14,8 @@ main:
 	.cfi_offset 6, -16
 	mov	rbp, rsp
 	.cfi_def_cfa_register 6
+	mov	edi, OFFSET FLAT:.LC0
+	call	puts
 	mov	eax, 0
 	pop	rbp
 	.cfi_def_cfa 7, 8

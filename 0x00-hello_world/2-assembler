@@ -1,2 +1,2 @@
 #!/bin/bash
-export $CFILE="hello.c" | gcc -S hello.c > hello.s
+export $CFILE="hello.c" | gcc -S $CFILE > hello.s

@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc main.c | export $CFILE=main.c > c
+export $CFILE="hello.c" | gcc -E $CFILE > c

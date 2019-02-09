@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 /**
- * main function prints the string "with proper grammar, but the outcome
- * is a piece of art,"
- * printf prints a string
+ * main - prints a string
+ * printf - prints a string
  * Return: zero integer value
  */
 int main(void)

@@ -14,11 +14,11 @@ int main(void)
 	int k;
 	int l;
 
-	for (i = 0; i <= 6; i++)
+	for (i = 0; i <= 9; i++)
 	{
-		for (j = i + 1; j <= 7; j++)
+		for (j = i + 1; j <= 8; j++)
 		{
-			for (k = j + 1; k <= 8; k++)
+			for (k = j + 1; k <= 9; k++)
 			{
 				for (l = k + 1; l <= 9; l++)
 				{
@@ -27,7 +27,7 @@ int main(void)
 					putchar(' ');
 					putchar(k + '0');
 					putchar(l + '0');
-					if (i != 6)
+					if (j != 8)
 					{
 						putchar(',');
 						putchar(' ');

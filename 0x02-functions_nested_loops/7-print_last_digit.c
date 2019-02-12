@@ -2,7 +2,8 @@
 
 /**
  * print_last_digit - prints the last digit of a number
- * r - integer type
+ *
+ * @r: integer type
  * Return: r integer value
  */
 

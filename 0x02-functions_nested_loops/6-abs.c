@@ -11,9 +11,6 @@ int _abs(int r)
 		return (r);
 	else if (r == 0)
 		return (0);
-	else
-	{
-		r = r * -1;
-		return (r);
-	}
+	r = r * -1;
+	return (r);
 }

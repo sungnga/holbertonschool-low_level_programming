@@ -3,6 +3,7 @@
 /**
  * print_alphabet_x10 - prints 10x the alphabet in lowercase followed by
  * a new line
+ * void - do not return
  * ch is a char type
  * i is a integer type
  */

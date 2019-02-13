@@ -2,8 +2,10 @@
 
 /**
  * add - adds two integers and returns result
- *
- * Return: 0 integer value
+ * a - integer type
+ * b - integer type
+ * c - integer type
+ * Return: c integer value
  */
 int add(int a, int b)
 {

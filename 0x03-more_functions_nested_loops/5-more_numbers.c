@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_more_numbers - prints 10x the numbers from 0 to 14, followed by
+ * more_numbers - prints 10x the numbers from 0 to 14, followed by
  * a new line
  *
  * t - integer type
@@ -13,7 +13,7 @@ void more_numbers(void)
 	int i;
 	int t;
 
-	for (t = 0; t <=9; t++)
+	for (t = 0; t <= 9; t++)
 	{
 		for (i = 0; i <= 14; i++)
 		{

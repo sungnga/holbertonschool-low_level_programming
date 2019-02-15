@@ -11,14 +11,14 @@ int main(void)
 {
 	long i;
 	long num = 612852475143;
-	long j;
+	long j = 2;
 
 	for (i = 2; i <= num; i++)
 	{
 		if (num % i == 0)
 			num = num / i;
 	}
-	if (i > (j = 2))
+	if (i > j)
 		j = i;
 	printf("%li\n", i);
 	return (0);

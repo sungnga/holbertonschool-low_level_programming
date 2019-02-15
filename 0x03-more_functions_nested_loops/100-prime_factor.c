@@ -2,12 +2,13 @@
 
 /**
  * main - finds and prints the largest prime factor of the number 612852475143
- *
+ * i - long type
+ * num - long type
  * Return: 0 integer value
  */
 int main(void)
 {
-        long i;
+	long i;
 	long num = 612852475143;
 
 	for (i = 2; i <= num; i++)

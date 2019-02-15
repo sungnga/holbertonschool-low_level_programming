@@ -9,17 +9,18 @@
  */
 int main(void)
 {
-	long i;
-	long num = 612852475143;
-	long j = 2;
+	long i = 2;
+	long n = 612852475143;
 
-	for (i = 2; i <= num; i++)
+	while (i < n)
 	{
-		if (num % i == 0)
-			num = num / i;
+		while (n % i == 0)
+		{
+			n = n / i;
+		}
+		i++;
 	}
-	if (i > j)
-		j = i;
-	printf("%li\n", j);
+
+	printf("%li\n", n);
 	return (0);
 }

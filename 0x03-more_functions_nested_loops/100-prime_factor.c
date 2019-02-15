@@ -20,6 +20,6 @@ int main(void)
 	}
 	if (i > j)
 		j = i;
-	printf("%li\n", i);
+	printf("%li\n", j);
 	return (0);
 }

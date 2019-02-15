@@ -1,12 +1,13 @@
 #include "holberton.h"
 
 /**
- * main - prints an integer
+ * print_number - prints an integer
+ * @n: integer type
  * i - integer type
  * Return: 0 integer value
  */
-int main(void)
+void print_number(int n)
 {
-        for ()
-	return (0);
+
+
 }

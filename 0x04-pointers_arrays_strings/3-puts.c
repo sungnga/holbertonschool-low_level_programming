@@ -1,6 +1,6 @@
 #include "holberton.h"
-#include <stdio.h>
 
+int _strlen(char *s);
 /**
  * _strlen - returns the length of a string
  * @s: character type
@@ -16,12 +16,11 @@ int _strlen(char *s)
 	return (i);
 }
 
-
-
 /**
  * _puts - prints a string, followed by a new line, to stdout
  * @str: character type
  * i - integer type
+ * len - integer type
  */
 void _puts(char *str)
 {
@@ -30,6 +29,6 @@ void _puts(char *str)
 
 	len = _strlen(str);
 	for (i = 0; i <= len; i++)
-		printf("%c", str[i]);
-	printf("\n");
+		_putchar(str[i]);
+	_putchar('\n');
 }

@@ -24,7 +24,7 @@ int _strlen(char *s)
  */
 void _puts(char *str)
 {
-	int len;
+	int len - 1;
 	int i;
 
 	len = _strlen(str);

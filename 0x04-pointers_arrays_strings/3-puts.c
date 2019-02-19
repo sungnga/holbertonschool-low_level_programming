@@ -24,11 +24,10 @@ int _strlen(char *s)
  */
 void _puts(char *str)
 {
-	int len - 1;
 	int i;
+	int len = _strlen(str);
 
-	len = _strlen(str);
-	for (i = 0; i <= len; i++)
+	for (i = 0; i <= len - 1; i++)
 		_putchar(str[i]);
 	_putchar('\n');
 }

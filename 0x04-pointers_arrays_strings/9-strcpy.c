@@ -22,6 +22,8 @@ int _strlen(char *s)
  * null byte (\n), to the buffer pointed to by dest
  * @dest: character type
  * @src: character type
+ * i - integer type
+ * len - integer type
  * Return: character value type
 */
 char *_strcpy(char *dest, char *src)

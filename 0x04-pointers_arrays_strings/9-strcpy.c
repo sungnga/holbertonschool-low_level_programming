@@ -1,5 +1,22 @@
 #include "holberton.h"
 
+int _strlen(char *s);
+/**
+ * _strlen - returns the length of a string
+ * @s: character type
+ * i - integer type
+ * Return: integer type
+ */
+int _strlen(char *s)
+{
+	int i;
+
+	for (i = 0; s[i]; i++)
+		;
+	return (i);
+}
+
+
 /**
  * _strcpy - copies the string pointed to by src, including the terminating
  * null byte (\n), to the buffer pointed to by dest
@@ -9,12 +26,13 @@
 */
 char *_strcpy(char *dest, char *src)
 {
-	char *start = dest;
+	int i = 0;
+	int len = _strlen(src);
 
-	while (*src != '\0')
+	for (i = 0; i <= len; i++)
 	{
-		*dest++ = *src++;
+		dest[i] = src[i];
 	}
-	*dest = '\0';
-	return (start);
+	dest[i] = '\0';
+	return (dest);
 }

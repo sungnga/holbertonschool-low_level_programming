@@ -6,6 +6,7 @@
  * i - integer type
  * j - integer type
  * Return: char type
+ * help from Sneha
  */
 char *leet(char *str)
 {

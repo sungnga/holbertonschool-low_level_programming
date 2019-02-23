@@ -8,6 +8,7 @@
  * flag - integer type
  * sep - char type
  * Return: char type
+ * help from Jason
  */
 char *cap_string(char *s)
 {

@@ -7,7 +7,8 @@
  * @s: char type
  * @b: char type
  * @n: unsigned int type
- * Return: 0 integer value, a pointer to the memory area s
+ * i - integer type
+ * Return: a pointer to the memory area s
  */
 char *_memset(char *s, char b, unsigned int n)
 {

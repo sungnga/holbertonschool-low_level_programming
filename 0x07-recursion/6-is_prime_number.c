@@ -16,7 +16,7 @@ int check_prime(int n, int i)
 }
 
 /**
- * is_prime_number - returns 1 if the integer is a prime num, otherwise return 0
+ * is_prime_number - returns 1 if the int is a prime num, otherwise return 0
  * @n: integer type
  * Return: value 1 or 0 of integer type
  */

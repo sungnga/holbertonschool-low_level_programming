@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	if (argc >= 0)
 	{
 		for (i = 0; i < argc; i++)
-	       		sum += i;
+			sum += i;
 	}
 	printf("%d\n", sum);
 	return (0);

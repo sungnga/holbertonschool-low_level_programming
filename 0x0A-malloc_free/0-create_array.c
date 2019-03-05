@@ -6,6 +6,7 @@
  * specific char
  * @size: unsigned integer type
  * @c: char type
+ * i - integer type
  * Return: a pointer to the array
  */
 char *create_array(unsigned int size, char c)
@@ -13,7 +14,9 @@ char *create_array(unsigned int size, char c)
 	unsigned int i;
 	char *new_arr = malloc(sizeof(char) * size);
 
-	for (i = 0; i < size; ++i)
+	if (size == 0)
+		return (NULL);
+	for (i = 0; i < size; i++)
 		new_arr[i] = c;
 	return (new_arr);
 }

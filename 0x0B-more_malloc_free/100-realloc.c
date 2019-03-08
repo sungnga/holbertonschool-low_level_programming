@@ -2,7 +2,7 @@
 
 /**
  * _realloc - reallocates a memory block using malloc and free
- * @ptr: a pointer to old allocated memory
+ * @ptr: a void pointer to old allocated memory
  * @old_size: size in bytes of allocated space for ptr in unassigned int type
  * @new_size: size in bytes of new memory block
  * p - a pointer in char type
@@ -33,7 +33,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		old_size = new_size;
 
 	for (i = 0; i < old_size; i++)
-		p[old_size] = ((char *) ptr)[old_size];
+		p[new_size] = ((char *) ptr)[old_size];
 
 	free(ptr);
 	return (p);

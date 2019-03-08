@@ -4,6 +4,7 @@
  * string_nconcat - concatenates two strings
  * @s1: first string in char type
  * @s2: second string in char type
+ * @n: insigned integer type
  * i - integer type
  * j - integer type
  * s3 - new string that contains s1 and s2
@@ -24,7 +25,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		;
 	if (n > j)
 		n = j;
-	s3 = malloc(sizeof(char) * (i + j) + 1);
+	s3 = malloc(sizeof(char) * (i + n) + 1);
 	if (s3 == NULL)
 		return (NULL);
 	for (i = 0; s1[i] != '\0'; i++)

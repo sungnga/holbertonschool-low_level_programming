@@ -2,7 +2,7 @@
 #define DOG_H
 
 /**
- * free_dog - defines a new type of struct dog
+ * struct dog - defines a new type of struct dog
  * @name: dog's name
  * @age: dog's age
  * @owner: dog's owner

@@ -1,5 +1,11 @@
 #include "3-calc.h"
 
+/**
+ * get_op_func - returns a pointer to the function that
+ * corresponds to the operator given as a parameter
+ * @s: the operator passed as argument to the program
+ * Return: a pointer of int type
+ */
 int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
@@ -12,6 +18,7 @@ int (*get_op_func(char *s))(int, int)
 	};
 
 	int i = 0;
+
 	while (ops[i].op)
 	{
 		if (strcmp(ops[i].op, s) == 0)

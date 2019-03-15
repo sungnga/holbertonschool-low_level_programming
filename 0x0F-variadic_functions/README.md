@@ -31,4 +31,4 @@ What you should learn from this project:
 ---
 
 ## Author
-* **Nga La** -[nga422@gmail.com](nga422@gmail.com)
+* **Nga La**

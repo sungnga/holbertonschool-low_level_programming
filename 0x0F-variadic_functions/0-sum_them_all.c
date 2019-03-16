@@ -7,21 +7,21 @@
  */
 int sum_them_all(const unsigned int n, ...)
 {
-	va_list numlist;
+	va_list ap;
 	unsigned int i, sum = 0;
 
 	/* initialize numlist for n number of arguments */
-	va_start(numlist, n);
+	va_start(ap, n);
 
 	if (n == 0)
 		return (0);
 
 	/* access all the arguments assigned to numlist */
 	for (i = 0; i < n; i++)
-		sum += va_arg(numlist, unsigned int);
+		sum += va_arg(ap, unsigned int);
 
 	/* clean memory reserved for numlist */
-	va_end(numlist);
+	va_end(ap);
 
 	return (sum);
 }

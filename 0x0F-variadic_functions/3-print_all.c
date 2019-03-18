@@ -78,10 +78,13 @@ void ptr_float(va_list list)
  */
 void ptr_string(va_list list)
 {
-	if (list != NULL)
+	char *s;
+
+	s = va_arg(list, char *);
+
+	if (!s)
 	{
-		printf("%s", va_arg(list, char*));
-		return;
+		s = "(nil)";
 	}
-	printf("(nil)");
+	printf("%s", s);
 }

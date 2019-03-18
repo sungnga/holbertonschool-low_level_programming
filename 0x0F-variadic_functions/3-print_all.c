@@ -1,14 +1,9 @@
 #include "variadic_functions.h"
 
-void ptr_char(va_list list);
-void ptr_int(va_list list);
-void ptr_float(va_list list);
-void ptr_string(va_list list);
-
 /**
  * print_all - prints anything
  * @format: a list of types of arguments passed to the function
- * Return: a list of
+ * Return: the values of the types of arguments
  */
 void print_all(const char * const format, ...)
 {
@@ -22,16 +17,16 @@ void print_all(const char * const format, ...)
 
 	int i, j;
 	va_list list;
-	va_start(list, format);
 	char *separator = "";
 
-       	i = 0;
+	va_start(list, format);
+
+	i = 0;
 	while (format[i])
 	{
 		j = 0;
 		while (array[j].s)
 		{
-
 			if (format[i] == *array[j].s)
 			{
 				printf("%s", separator);
@@ -40,7 +35,6 @@ void print_all(const char * const format, ...)
 			}
 			j++;
 		}
-
 		i++;
 	}
 	printf("\n");
@@ -48,26 +42,40 @@ void print_all(const char * const format, ...)
 }
 
 /**
- * op_mul - returns the product of a and b
- * @a: first number in integer
- * @b: second number in integer
- * Return: the result
+ * ptr_char - prints the characters from the arguments
+ * @list: arguments list
+ * Return: nothing
  */
 void ptr_char(va_list list)
 {
 	printf("%c", va_arg(list, int));
 }
 
+/**
+ * ptr_int - prints the integers from the arguments
+ * @list: arguments list
+ * Return: nothing
+ */
 void ptr_int(va_list list)
 {
         printf("%i", va_arg(list, int));
 }
 
+/**
+ * ptr_float - prints the float integers from the arguments
+ * @list: arguments list
+ * Return: nothing
+ */
 void ptr_float(va_list list)
 {
         printf("%f", va_arg(list, double));
 }
 
+/**
+ * ptr_string - prints the strings from the arguments
+ * @list: arguments list
+ * Return: nothing
+ */
 void ptr_string(va_list list)
 {
 	if (list != NULL)

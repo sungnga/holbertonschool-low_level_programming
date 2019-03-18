@@ -22,7 +22,7 @@ void print_all(const char * const format, ...)
 	va_start(list, format);
 
 	i = 0;
-	while (format[i])
+	while (format[i] && format == NULL)
 	{
 		j = 0;
 		while (array[j].s)
@@ -58,7 +58,7 @@ void ptr_char(va_list list)
  */
 void ptr_int(va_list list)
 {
-        printf("%i", va_arg(list, int));
+	printf("%i", va_arg(list, int));
 }
 
 /**
@@ -68,7 +68,7 @@ void ptr_int(va_list list)
  */
 void ptr_float(va_list list)
 {
-        printf("%f", va_arg(list, double));
+	printf("%f", va_arg(list, double));
 }
 
 /**

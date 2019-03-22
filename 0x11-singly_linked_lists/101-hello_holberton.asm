@@ -1,4 +1,4 @@
-hello:	 .string "Hello, Holberton\n"
+.string "Hello, Holberton\n"
 fmt:	  .string "char: %c \nint: %d\n"
 	.balign 4
 	.global main

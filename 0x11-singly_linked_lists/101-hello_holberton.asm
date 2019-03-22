@@ -1,25 +1,19 @@
-section .data
-	fmt     db "%u  %s",10,0
-	msg1    db "Hello",0
-	msg2    db "Holberton",0
+hello:	 .string "Hello, Holberton\n"
+fmt:	  .string "char: %c \nint: %d\n"
+	.balign 4
+	.global main
+main:	 stp  x29, x30, [sp, -16]!
+	mov  x29, sp
+	mov  w19, 65
+	mov  w20, 42
 
-	section .text
-	extern printf
-	global _start
+	adrp x0, fmt
+	add  x0, x0, :lo12:fmt
+	mov  w1, w19
+	mov  w2, w20
+	bl   printf
 
-_start:
-	mov  edx, msg1
-	mov  esi, 1
-	mov  edi, fmt
-	mov  eax, 0
-	call printf
+	mov  w0, 0
 
-	mov  edx, msg2
-	mov  esi, 2
-	mov  edi, fmt
-	mov  eax, 0
-	call printf
-
-	mov  ebx, 0
-	mov  eax, 1
-	int  0x80
+	ldp  x29, x30, [sp], 16
+	ret

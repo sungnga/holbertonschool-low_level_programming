@@ -11,15 +11,15 @@ _start:
 	mov  edx, msg1
 	mov  esi, 1
 	mov  edi, fmt
-	mov  eax, 0     	; no f.p. args
+	mov  eax, 0
 	call printf
 
 	mov  edx, msg2
 	mov  esi, 2
 	mov  edi, fmt
-	mov  eax, 0     	; no f.p. args
+	mov  eax, 0
 	call printf
 
-	mov  ebx, 0     	; return value
+	mov  ebx, 0
 	mov  eax, 1
 	int  0x80

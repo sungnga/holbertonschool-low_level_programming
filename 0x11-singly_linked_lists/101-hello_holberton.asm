@@ -1,7 +1,9 @@
-section .data
+	extern printf
 
-an:	    db 'a'
-format:	 db "num: %c" , 10, 0
+	section .data
+
+an:	    db "Hello, Holberton", 0
+format:	 db "%s" , 10, 0
 
 	section .text
 	         global main
@@ -22,4 +24,3 @@ main:
 
 	         mov eax, 0
 	         ret
-	

@@ -21,7 +21,6 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 			i++;
 		/* shift to the next digit */
 		n = n >> 1;
-
 	}
 	return (i); /* returns total number of flips */
 }

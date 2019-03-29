@@ -17,7 +17,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	while (n)
 	{
 		/* if the result of n is 1, iterate the count*/
-		if (n & 1 != 0)
+		if ((n & 1) != 0)
 			i++;
 		/* shift to the next digit */
 		n = n >> 1;

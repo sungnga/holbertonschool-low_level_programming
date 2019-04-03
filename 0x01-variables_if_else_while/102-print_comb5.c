@@ -9,30 +9,22 @@
  */
 int main(void)
 {
-	int i;
-	int j;
-	int k;
-	int l;
+	int n1;
+	int n2;
 
-	for (i = 0; i <= 9; i++)
+	for (n1 = 0; n1 <= 98; n1++)
 	{
-		for (j = 0; j <= 8; j++)
+		for (n2 = n1 + 1; n2 <= 99; n2++)
 		{
-			for (k = 0; k <= 9; k++)
+			putchar((n1 / 10) + '0');
+			putchar((n1 % 10) + '0');
+			putchar(' ');
+			putchar((n2 / 10) + '0');
+			putchar((n2 % 10) + '0');
+			if (n1 != 98 || n2 != 99)
 			{
-				for (l = 1; l <= 9; l++)
-				{
-					putchar(i + '0');
-					putchar(j + '0');
-					putchar(' ');
-					putchar(k + '0');
-					putchar(l + '0');
-					if ((i + j + k + l) != 35)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}

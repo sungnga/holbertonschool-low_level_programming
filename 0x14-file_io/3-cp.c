@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * main - reads a text file and prints it to the POSIX standard output
- * @filename: pointer to text in a file
- * @letters: number of letters
+ * main - copies the content of a file to another file
+ * @argc: number of arguments passed
+ * @argv: double pointer
  * Return: the actual number of letters it could read and print
  */
 int main(int argc, char **argv)
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	while ((n = read (f1, buf, 1024)) > 0)
+	while ((n = read(f1, buf, 1024)) > 0)
 	{
 		if (write(f2, buf, n) != n)
 		{

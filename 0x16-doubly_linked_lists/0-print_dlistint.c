@@ -2,7 +2,7 @@
 
 /**
  * print_dlistint - prints all the elements of a dlistint_t list
- * @h: a pointer to head
+ * @h: pointer to first node in linked list
  * Return: the number of nodes
  */
 size_t print_dlistint(const dlistint_t *h)
@@ -13,7 +13,7 @@ size_t print_dlistint(const dlistint_t *h)
 	temp = h;
 	while (temp != NULL)
 	{
-		printf("%u\n", temp->n);
+		printf("%d\n", temp->n);
 		temp = temp->next;
 		count++;
 	}

@@ -21,11 +21,11 @@ void selection_sort(int *array, size_t size)
 				jMin = j;
 		}
 		if (jMin != i)
-			{
-				temp = array[i];
-				array[i] = array[jMin];
-				array[jMin] = temp;
-				print_array(array, size);
-			}
+		{
+			temp = array[i];
+			array[i] = array[jMin];
+			array[jMin] = temp;
+			print_array(array, size);
+		}
 	}
 }

@@ -40,7 +40,5 @@ int palin_rev(char *s, int i)
  */
 int is_palindrome(char *s)
 {
-	if (*s < 0)
-		return (0);
 	return (palin_rev(s, 0));
 }

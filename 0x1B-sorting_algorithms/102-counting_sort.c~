@@ -10,8 +10,8 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int i, j, range, sum_count = 0, max = 0, input_size = size;
-	int *output = NULL, *count = NULL;
+	int i, j, range, max = 0, input_size = size;
+	int *output, *count;
 
 	if (!array || input_size < 2)
 		return;
@@ -32,22 +32,18 @@ void counting_sort(int *array, size_t size)
 		for (j = 0; j < input_size; j++)
 		{
 			if (i == array[j])
-				count[i]++;
+				count[i] =+ 1;
 		}
 	}
 	/* Loop thru count array and update the sum of occurences */
-	for (i = 1; i < range; i++)
+	for (i = 0; i < range; i++)
 		count[i] += count[i - 1];
 	print_array(count, range);
 	/* Loop thru output array and update with the sorted list */
 	for (i = 0; i < input_size; i++)
 	{
-		sum_count = count[array[i]];
-		output[sum_count - 1] = array[i];
-		count[array[i]]--;
+		output[i] = array[count[output[i]] - 1];
+		count[output[i]] -= 1;;
 	}
-	for (i = 0; i < input_size; i++)
-		array[i] = output[i];
 	free(count);
-	free(output);
 }

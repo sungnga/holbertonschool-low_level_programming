@@ -25,10 +25,8 @@ void counting_sort(int *array, size_t size)
 	count = malloc(range * sizeof(int));
 	for (i = 0; i < range; i++)
 		count[i] = 0;
-	/* Loop thru count array */
 	for (i = 0; i < range; i++)
 	{
-		/* Loop thru given array */
 		for (j = 0; j < input_size; j++)
 		{
 			if (i == array[j])
@@ -43,13 +41,11 @@ void counting_sort(int *array, size_t size)
 	copyarray = malloc(input_size * sizeof(int));
 	for (i = 0; i < input_size; i++)
 		copyarray[i] = array[i];
-
 	/* Loop thru original array and update with the sorted number */
 	for (i = 0; i < input_size; i++)
 	{
 		array[count[copyarray[i]] - 1] = copyarray[i];
 		copyarray[i]--;
-
 	}
 	free(count);
 	free(copyarray);

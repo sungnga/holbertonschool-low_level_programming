@@ -10,8 +10,8 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int i, j, range, sum_count = 0, max = 0, input_size = size;
-	int *output = NULL, *count = NULL;
+	int i, j, range, max = 0, input_size = size;
+	int *copyarray, *count;
 
 	if (!array || input_size < 2)
 		return;
@@ -28,7 +28,7 @@ void counting_sort(int *array, size_t size)
 	/* Loop thru count array */
 	for (i = 0; i < range; i++)
 	{
-		/* Loop thru given list */
+		/* Loop thru given array */
 		for (j = 0; j < input_size; j++)
 		{
 			if (i == array[j])
@@ -39,13 +39,18 @@ void counting_sort(int *array, size_t size)
 	for (i = 1; i < range; i++)
 		count[i] += count[i - 1];
 	print_array(count, range);
-	/* Loop thru output array and update with the sorted list */
+
+	copyarray = malloc(input_size * sizeof(int));
+	for (i = 0; i < input_size; i++)
+		copyarray[i] = array[i];
+
+	/* Loop thru original array and update with the sorted number */
 	for (i = 0; i < input_size; i++)
 	{
-		sum_count = array[i];
-		output[count[sum_count - 1]] = array[i];
-		count[array[i]]--;
+		array[count[copyarray[i]] - 1] = copyarray[i];
+		copyarray[i]--;
+
 	}
 	free(count);
-	free(output);
+	free(copyarray);
 }

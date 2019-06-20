@@ -42,6 +42,8 @@ void counting_sort(int *array, size_t size)
 	/* Loop thru output array and update with the sorted list */
 	for (i = 0; i < input_size; i++)
 	{
+		sum_count = array[i];
+		output[count[sum_count - 1]] = array[i];
 		count[array[i]]--;
 	}
 	free(count);

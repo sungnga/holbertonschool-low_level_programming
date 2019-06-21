@@ -14,6 +14,78 @@ What you should learn from this project:
 * [Sorting algorithms animations](https://www.toptal.com/developers/sorting-algorithms)
 * [15 sorting algorithms in 6 minutes](https://www.toptal.com/developers/sorting-algorithms)
 
+### Data Structure and Functions
+
+* For this project you are given the following `print_array`, and `print_list` functions:
+
+```
+#include <stdlib.h>
+#include <stdio.h>
+
+/**
+ * print_array - Prints an array of integers
+ *
+ * @array: The array to be printed
+ * @size: Number of elements in @array
+ */
+void print_array(const int *array, size_t size)
+{
+    size_t i;
+
+    i = 0;
+    while (array && i < size)
+    {
+        if (i > 0)
+            printf(", ");
+        printf("%d", array[i]);
+        ++i;
+    }
+    printf("\n");
+}
+```
+
+```
+#include <stdio.h>
+#include "sort.h"
+
+/**
+ * print_list - Prints a list of integers
+ *
+ * @list: The list to be printed
+ */
+void print_list(const listint_t *list)
+{
+    int i;
+
+    i = 0;
+    while (list)
+    {
+        if (i > 0)
+            printf(", ");
+        printf("%d", list->n);
+        ++i;
+        list = list->next;
+    }
+    printf("\n");
+}
+```
+
+```
+/**
+ * struct listint_s - Doubly linked list node
+ *
+ * @n: Integer stored in the node
+ * @prev: Pointer to the previous element of the list
+ * @next: Pointer to the next element of the list
+ */
+typedef struct listint_s
+{
+    const int n;
+    struct listint_s *prev;
+    struct listint_s *next;
+} listint_t;
+```
+
 ---
 
 ### [0. Bubble sort](./0-bubble_sort.c)
@@ -506,31 +578,338 @@ alex@/tmp/sort$
 Directory: 0x1B-sorting_algorithms
 File: 102-counting_sort.c, 102-O
 
----
 
 ### [7. Merge sort](./103-merge_sort.c)
 
+Write a function that sorts an array of integers in ascending order using the [Merge sort](https://en.wikipedia.org/wiki/Merge_sort) algorithm
+* Prototype: `void merge_sort(int *array, size_t size);`
+* You must implement the `top-down` merge sort algorithm
+  * When you divide an array into two sub-arrays, the size of the left array should always be <= the size of the right array. i.e. `{1, 2, 3, 4, 5}` -> `{1, 2}, {3, 4, 5}`
+  * Sort the left array before the right array
+* You are allowed to use `printf`
+* You are allowed to use `malloc` and free only once (only one call)
+* Output: see example
+
+Write in the file `103-O`, the big O notations of the time complexity of the Merge sort algorithm, with 1 notation per line:
+* in the best case
+* in the average case
+* in the worst case
+
+```
+alex@/tmp/sort$ cat 103-main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include "sort.h"
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    print_array(array, n);
+    printf("\n");
+    merge_sort(array, n);
+    printf("\n");
+    print_array(array, n);
+    return (0);
+}
+alex@/tmp/sort$ gcc -Wall -Wextra -Werror -pedantic 103-main.c 103-merge_sort.c print_array.c -o merge
+alex@/tmp/sort$ ./merge
+19, 48, 99, 71, 13, 52, 96, 73, 86, 7
+
+Merging...
+[left]: 19
+[right]: 48
+[Done]: 19, 48
+Merging...
+[left]: 71
+[right]: 13
+[Done]: 13, 71
+Merging...
+[left]: 99
+[right]: 13, 71
+[Done]: 13, 71, 99
+Merging...
+[left]: 19, 48
+[right]: 13, 71, 99
+[Done]: 13, 19, 48, 71, 99
+Merging...
+[left]: 52
+[right]: 96
+[Done]: 52, 96
+Merging...
+[left]: 86
+[right]: 7
+[Done]: 7, 86
+Merging...
+[left]: 73
+[right]: 7, 86
+[Done]: 7, 73, 86
+Merging...
+[left]: 52, 96
+[right]: 7, 73, 86
+[Done]: 7, 52, 73, 86, 96
+Merging...
+[left]: 13, 19, 48, 71, 99
+[right]: 7, 52, 73, 86, 96
+[Done]: 7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+alex@/tmp/sort$
+```
+
+Directory: 0x1B-sorting_algorithms
+File: 103-merge_sort.c, 103-O
 
 
 ### [8. Heap sort](./104-heap_sort.c)
 
+Write a function that sorts an array of integers in ascending order using the [Heap sort](https://en.wikipedia.org/wiki/Heapsort) algorithm
+* Prototype: void heap_sort(int *array, size_t size);
+* You must implement the sift-down heap sort algorithm
+* You’re expected to print the array after each time you swap two elements (See example below)
+
+Write in the file 104-O, the big O notations of the time complexity of the Heap sort algorithm, with 1 notation per line:
+* in the best case
+* in the average case
+*in the worst case
+
+```
+alex@/tmp/sort$ cat 104-main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include "sort.h"
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    print_array(array, n);
+    printf("\n");
+    heap_sort(array, n);
+    printf("\n");
+    print_array(array, n);
+    return (0);
+}
+alex@/tmp/sort$ gcc -Wall -Wextra -Werror -pedantic 104-main.c 104-heap_sort.c print_array.c -o heap
+alex@/tmp/sort$ ./heap
+19, 48, 99, 71, 13, 52, 96, 73, 86, 7
+
+19, 48, 99, 86, 13, 52, 96, 73, 71, 7
+19, 86, 99, 48, 13, 52, 96, 73, 71, 7
+19, 86, 99, 73, 13, 52, 96, 48, 71, 7
+99, 86, 19, 73, 13, 52, 96, 48, 71, 7
+99, 86, 96, 73, 13, 52, 19, 48, 71, 7
+7, 86, 96, 73, 13, 52, 19, 48, 71, 99
+96, 86, 7, 73, 13, 52, 19, 48, 71, 99
+96, 86, 52, 73, 13, 7, 19, 48, 71, 99
+71, 86, 52, 73, 13, 7, 19, 48, 96, 99
+86, 71, 52, 73, 13, 7, 19, 48, 96, 99
+86, 73, 52, 71, 13, 7, 19, 48, 96, 99
+48, 73, 52, 71, 13, 7, 19, 86, 96, 99
+73, 48, 52, 71, 13, 7, 19, 86, 96, 99
+73, 71, 52, 48, 13, 7, 19, 86, 96, 99
+19, 71, 52, 48, 13, 7, 73, 86, 96, 99
+71, 19, 52, 48, 13, 7, 73, 86, 96, 99
+71, 48, 52, 19, 13, 7, 73, 86, 96, 99
+7, 48, 52, 19, 13, 71, 73, 86, 96, 99
+52, 48, 7, 19, 13, 71, 73, 86, 96, 99
+13, 48, 7, 19, 52, 71, 73, 86, 96, 99
+48, 13, 7, 19, 52, 71, 73, 86, 96, 99
+48, 19, 7, 13, 52, 71, 73, 86, 96, 99
+13, 19, 7, 48, 52, 71, 73, 86, 96, 99
+19, 13, 7, 48, 52, 71, 73, 86, 96, 99
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+13, 7, 19, 48, 52, 71, 73, 86, 96, 99
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+alex@/tmp/sort$
+```
+
+Directory: 0x1B-sorting_algorithms
+File: 104-heap_sort.c, 104-O
 
 
 ### [9. Radix sort](./105-radix_sort.c)
 
+Write a function that sorts an array of integers in ascending order using the [Radix sort](https://en.wikipedia.org/wiki/Radix_sort) algorithm
+* Prototype: `void radix_sort(int *array, size_t size);`
+* You must implement the `LSD` radix sort algorithm
+* You can assume that `array` will contain only numbers `>= 0`
+* You are allowed to use `malloc` and `free` for this task
+* You’re expected to print the `array` each time you increase your `significant digit` (See example below)
+
+Write in the file `105-O`, the big O notations of the time complexity of the LSD Radix sort algorithm, with 1 notation per line:
+* in the best case
+* in the average case
+* in the worst case
+
+```
+alex@/tmp/sort$ cat 105-main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include "sort.h"
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    print_array(array, n);
+    printf("\n");
+    radix_sort(array, n);
+    printf("\n");
+    print_array(array, n);
+    return (0);
+}
+alex@/tmp/sort$ gcc -Wall -Wextra -Werror -pedantic 105-main.c 105-radix_sort.c print_array.c -o radix
+alex@/tmp/sort$ ./radix
+19, 48, 99, 71, 13, 52, 96, 73, 86, 7
+
+71, 52, 13, 73, 96, 86, 7, 48, 19, 99
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+alex@/tmp/sort$
+```
+
+Directory: 0x1B-sorting_algorithms
+File: 105-radix_sort.c, 105-O
 
 
 ### [10. Bitonic sort](./106-bitonic_sort.c)
 
+Write a function that sorts an array of integers in ascending order using the [Bitonic sort](https://en.wikipedia.org/wiki/Bitonic_sorter) algorithm
+* Prototype: `void bitonic_sort(int *array, size_t size);`
+* You can assume that `size` will be equal to `2^k`, where `k >= 0` (when `array` is not `NULL` …)
+* You are allowed to use `printf`
+* You’re expected to print the `array` each time you swap two elements (See example below)
+* Output: see example
+
+Write in the file `106-O`, the big O notations of the time complexity of the Bitonic sort algorithm, with 1 notation per line:
+* in the best case
+* in the average case
+*in the worst case
 
 
 ### [11. Quick Sort - Hoare Partition scheme](./107-quick_sort_hoare.c)
 
+Write a function that sorts an array of integers in ascending order using the [Quick sort](https://en.wikipedia.org/wiki/Quicksort) algorithm
+* Prototype: `void quick_sort_hoare(int *array, size_t size);`
+* You must implement the `Hoare` partition scheme.
+* The pivot should always be the last element of the partition being sorted.
+* You’re expected to print the `array` after each time you swap two elements (See example below)
+
+Write in the file `107-O`, the big O notations of the time complexity of the Quick sort algorithm, with 1 notation per line:
+* in the best case
+* in the average case
+* in the worst case
+
+```
+alex@/tmp/sort$ cat 107-main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include "sort.h"
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    print_array(array, n);
+    printf("\n");
+    quick_sort_hoare(array, n);
+    printf("\n");
+    print_array(array, n);
+    return (0);
+}
+alex@/tmp/sort$ gcc -Wall -Wextra -Werror -pedantic 107-main.c 107-quick_sort_hoare.c print_array.c -o quick
+alex@/tmp/sort$ ./quick
+19, 48, 99, 71, 13, 52, 96, 73, 86, 7
+
+7, 48, 99, 71, 13, 52, 96, 73, 86, 19
+7, 19, 99, 71, 13, 52, 96, 73, 86, 48
+7, 19, 13, 71, 99, 52, 96, 73, 86, 48
+7, 13, 19, 71, 99, 52, 96, 73, 86, 48
+7, 13, 19, 48, 99, 52, 96, 73, 86, 71
+7, 13, 19, 48, 71, 52, 96, 73, 86, 99
+7, 13, 19, 48, 52, 71, 96, 73, 86, 99
+7, 13, 19, 48, 52, 71, 86, 73, 96, 99
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+alex@/tmp/sort$
+```
+
+Directory: 0x1B-sorting_algorithms
+File: 107-quick_sort_hoare.c, 107-O
 
 
 ### [12. Dealer](./1000-sort_deck.c)
-* 
 
+Write a function that sorts a deck of cards.
+* Prototype: void sort_deck(deck_node_t **deck);
+* You are allowed to use the C standard library function qsort
+* Please use the following data structures:
+
+```
+typedef enum kind_e
+{
+    SPADE = 0,
+    HEART,
+    CLUB,
+    DIAMOND
+} kind_t;
+
+/**
+ * struct card_s - Playing card
+ *
+ * @value: Value of the card
+ * From "Ace" to "King"
+ * @kind: Kind of the card
+ */
+typedef struct card_s
+{
+    const char *value;
+    const kind_t kind;
+} card_t;
+
+/**
+ * struct deck_node_s - Deck of card
+ *
+ * @card: Pointer to the card of the node
+ * @prev: Pointer to the previous node of the list
+ * @next: Pointer to the next node of the list
+ */
+typedef struct deck_node_s
+{
+    const card_t *card;
+    struct deck_node_s *prev;
+    struct deck_node_s *next;
+} deck_node_t;
+```
 
 ---
 

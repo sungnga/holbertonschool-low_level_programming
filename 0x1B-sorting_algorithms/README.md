@@ -82,6 +82,7 @@ alex@/tmp/sort$ ./bubble
 alex@/tmp/sort$ 
 ```
 Directory: `0x1B-sorting_algorithms`
+
 File: `0-bubble_sort.c, 0-O`
 
 ### [1. Insertion sort](./1-insertion_sort_list.c)

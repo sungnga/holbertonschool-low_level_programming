@@ -458,14 +458,14 @@ File: 101-cocktail_sort_list.c, 101-O
 
 ### [6. Counting sort](./102-counting_sort.c)
 
-Write a function that sorts an array of integers in ascending order using the Counting sort algorithm
-* Prototype: void counting_sort(int *array, size_t size);
-* You can assume that array will contain only numbers >= 0
-* You are allowed to use malloc and free for this task
+Write a function that sorts an array of integers in ascending order using the [Counting sort](https://en.wikipedia.org/wiki/Counting_sort) algorithm
+* Prototype: `void counting_sort(int *array, size_t size);`
+* You can assume that `array` will contain only numbers `>= 0`
+* You are allowed to use `malloc` and `free` for this task
 * You’re expected to print your counting array once it is set up (See example below)
-  * This array is of size k + 1 where k is the largest number in array
+  * This array is of size `k + 1` where `k` is the largest number in `array`
 
-Write in the file 102-O, the big O notations of the time complexity of the Counting sort algorithm, with 1 notation per line:
+Write in the file `102-O`, the big O notations of the time complexity of the Counting sort algorithm, with 1 notation per line:
 * in the best case
 * in the average case
 * in the worst case
@@ -505,6 +505,7 @@ alex@/tmp/sort$
 
 Directory: 0x1B-sorting_algorithms
 File: 102-counting_sort.c, 102-O
+
 ---
 
 ### [7. Merge sort](./103-merge_sort.c)

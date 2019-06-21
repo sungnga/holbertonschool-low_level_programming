@@ -670,11 +670,11 @@ File: 103-merge_sort.c, 103-O
 ### [8. Heap sort](./104-heap_sort.c)
 
 Write a function that sorts an array of integers in ascending order using the [Heap sort](https://en.wikipedia.org/wiki/Heapsort) algorithm
-* Prototype: void heap_sort(int *array, size_t size);
-* You must implement the sift-down heap sort algorithm
-* You’re expected to print the array after each time you swap two elements (See example below)
+* Prototype: `void heap_sort(int *array, size_t size);`
+* You must implement the `sift-down` heap sort algorithm
+* You’re expected to print the `array` after each time you swap two elements (See example below)
 
-Write in the file 104-O, the big O notations of the time complexity of the Heap sort algorithm, with 1 notation per line:
+Write in the file `104-O`, the big O notations of the time complexity of the Heap sort algorithm, with 1 notation per line:
 * in the best case
 * in the average case
 *in the worst case

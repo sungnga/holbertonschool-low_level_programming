@@ -29,6 +29,8 @@ Write in the file `0-O`, the big O notations of the time complexity of the Bubbl
 * in the average case
 * in the worst case
 
+[Video](https://youtu.be/lyZQPjUT5B4)
+
 ```
 alex@/tmp/sort$ cat 0-main.c
 #include <stdio.h>
@@ -79,14 +81,14 @@ alex@/tmp/sort$ ./bubble
 7, 13, 19, 48, 52, 71, 73, 86, 96, 99
 
 7, 13, 19, 48, 52, 71, 73, 86, 96, 99
-alex@/tmp/sort$ 
+alex@/tmp/sort$
 ```
 Directory: `0x1B-sorting_algorithms`
-
 File: `0-bubble_sort.c, 0-O`
 
 ### [1. Insertion sort](./1-insertion_sort_list.c)
-* 
+
+
 
 
 

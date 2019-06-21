@@ -99,6 +99,8 @@ Write in the file `1-O`, the big O notations of the time complexity of the Inser
 * in the average case
 * in the worst case
 
+[Video](https://youtu.be/ROalU379l3U)
+
 ```
 alex@/tmp/sort$ cat 1-main.c
 #include <stdio.h>
@@ -192,16 +194,162 @@ File: 1-insertion_sort_list.c, 1-O
 
 
 ### [2. Selection sort](./2-selection_sort.c)
-* 
 
+Write a function that sorts an array of integers in ascending order using the [Selection sort](https://en.wikipedia.org/wiki/Selection_sort) algorithm
+* Prototype: `void selection_sort(int *array, size_t size);`
+* You’re expected to print the `array` after each time you swap two elements (See example below)
+
+Write in the file `2-O`, the big O notations of the time complexity of the Selection sort algorithm, with 1 notation per line:
+* in the best case
+* in the average case
+* in the worst case
+
+[Video](https://youtu.be/Ns4TPTC8whw)
+
+```
+alex@/tmp/sort$ cat 2-main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include "sort.h"
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    print_array(array, n);
+    printf("\n");
+    selection_sort(array, n);
+    printf("\n");
+    print_array(array, n);
+    return (0);
+}
+alex@/tmp/sort$ gcc -Wall -Wextra -Werror -pedantic 2-main.c 2-selection_sort.c print_array.c -o select
+alex@/tmp/sort$ ./select
+19, 48, 99, 71, 13, 52, 96, 73, 86, 7
+
+7, 48, 99, 71, 13, 52, 96, 73, 86, 19
+7, 13, 99, 71, 48, 52, 96, 73, 86, 19
+7, 13, 19, 71, 48, 52, 96, 73, 86, 99
+7, 13, 19, 48, 71, 52, 96, 73, 86, 99
+7, 13, 19, 48, 52, 71, 96, 73, 86, 99
+7, 13, 19, 48, 52, 71, 73, 96, 86, 99
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+alex@/tmp/sort$
+```
+
+Directory: 0x1B-sorting_algorithms
+File: 2-selection_sort.c, 2-O
 
 
 ### [3. Quick sort](./3-quick_sort.c)
-* Write a function that sorts an array of integers in ascending order using the Quick sort algorithm
+
+Write a function that sorts an array of integers in ascending order using the [Quick sort](https://en.wikipedia.org/wiki/Quicksort) algorithm
+* Prototype: `void quick_sort(int *array, size_t size);`
+* You must implement the `Lomuto` partition scheme.
+* The pivot should always be the last element of the partition being sorted.
+* You’re expected to print the `array` after each time you swap two elements (See example below)
+
+Write in the file `3-O`, the big O notations of the time complexity of the Quick sort algorithm, with 1 notation per line:
+* in the best case
+* in the average case
+*in the worst case
+
+```
+alex@/tmp/sort$ cat 3-main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include "sort.h"
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    print_array(array, n);
+    printf("\n");
+    quick_sort(array, n);
+    printf("\n");
+    print_array(array, n);
+    return (0);
+}
+alex@/tmp/sort$ gcc -Wall -Wextra -Werror -pedantic 3-main.c 3-quick_sort.c print_array.c -o quick
+alex@/tmp/sort$ ./quick
+19, 48, 99, 71, 13, 52, 96, 73, 86, 7
+
+7, 48, 99, 71, 13, 52, 96, 73, 86, 19
+7, 13, 99, 71, 48, 52, 96, 73, 86, 19
+7, 13, 19, 71, 48, 52, 96, 73, 86, 99
+7, 13, 19, 71, 48, 52, 73, 96, 86, 99
+7, 13, 19, 71, 48, 52, 73, 86, 96, 99
+7, 13, 19, 48, 71, 52, 73, 86, 96, 99
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+alex@/tmp/sort$
+```
+
+Directory: 0x1B-sorting_algorithms
+File: 3-quick_sort.c, 3-O
 
 
 ### [4. Shell sort - Knuth Sequence](./100-shell_sort.c)
-* Write a function that sorts an array of integers in ascending order using the Shell sort algorithm, using the Knuth sequence
+
+Write a function that sorts an array of integers in ascending order using the [Shell sort](https://en.wikipedia.org/wiki/Shellsort) algorithm, using the `Knuth sequence`
+* Prototype: `void shell_sort(int *array, size_t size);`
+* You must use the following sequence of intervals (a.k.a the Knuth sequence):
+  * `n+1 = n * 3 + 1`
+  *` 1, 4, 13, 40, 121, ...`
+* You’re expected to print the `array` each time you decrease the interval (See example below).
+
+```
+alex@/tmp/sort$ cat 100-main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include "sort.h"
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    print_array(array, n);
+    printf("\n");
+    shell_sort(array, n);
+    printf("\n");
+    print_array(array, n);
+    return (0);
+}
+alex@/tmp/sort$ gcc -Wall -Wextra -Werror -pedantic 100-main.c 100-shell_sort.c print_array.c -o shell
+alex@/tmp/sort$ ./shell
+19, 48, 99, 71, 13, 52, 96, 73, 86, 7
+
+13, 7, 96, 71, 19, 48, 99, 73, 86, 52
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+
+7, 13, 19, 48, 52, 71, 73, 86, 96, 99
+alex@/tmp/sort$
+```
+
+Directory: 0x1B-sorting_algorithms
+File: 100-shell_sort.c
 
 
 ### [5. Cocktail shaker sort](./101-cocktail_sort_list.c)

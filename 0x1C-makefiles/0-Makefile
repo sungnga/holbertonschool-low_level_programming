@@ -1,0 +1,2 @@
+holberton: main.c holberton.c m.h
+	${CC} main.c holberton.c m.h -o holberton

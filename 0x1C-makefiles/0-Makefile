@@ -1,2 +1,3 @@
-holberton: main.c holberton.c m.h
+CC = gcc
+all: holberton
 	${CC} main.c holberton.c m.h -o holberton

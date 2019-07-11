@@ -1,3 +1,2 @@
-CC = gcc
-all: holberton
-	${CC} main.c holberton.c m.h -o holberton
+all:
+	gcc main.c holberton.c -o holberton

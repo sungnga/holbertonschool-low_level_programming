@@ -12,7 +12,7 @@ clean:
 	rm -f *~ $(NAME)
 
 oclean:
-	rm -f $(OBJ)
+	rm -f $(SRC:%.c=%.o)
 
 fclean: clean oclean
 

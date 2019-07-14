@@ -5,9 +5,9 @@
 def island_perimeter(grid):
     """A method that returns the perimeter"""
     count = 0
+    row_size = len(row)
     for row in grid:
-        row_size = len(row)
-        row.insert(0)
+        row.insert(0, 0)
         row.append(0)
 
     for grid_idx, row in enumerate(grid):

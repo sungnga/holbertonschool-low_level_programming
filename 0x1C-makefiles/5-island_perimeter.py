@@ -5,15 +5,20 @@
 def island_perimeter(grid):
     """A method that returns the perimeter"""
     count = 0
-    for i, row in enumerate(grid):
-        for j, val in enumerate(row):
+    for row in grid:
+        row_size = len(row)
+        row.insert(0)
+        row.append(0)
+
+    for grid_idx, row in enumerate(grid):
+        for row_idx, val in enumerate(row):
             if val == 1:
-                if grid[i][j-1] != 1:
+                if grid[grid_idx][row_idx - 1] != 1:
                     count += 1
-                if grid[i][j+1] != 1:
+                if grid[grid_idx][row_idx + 1] != 1:
                     count += 1
-                if grid[i-1][j] != 1:
+                if grid[grid_idx - 1][row_idx] != 1:
                     count += 1
-                if grid[i+1][j] != 1:
+                if grid[grid_idx + 1][row_idx] != 1:
                     count += 1
     return count

@@ -25,25 +25,19 @@ size_t binary_tree_height(const binary_tree_t *tree)
 		return (right_height + 1);
 }
 
-
 /**
- * binary_tree_is_full - A function that checks if a binary tree is full
- * @tree: A pointer to the root node of the tree to check
+ * binary_tree_size - A function that measures the size of a binary tree
+ * @tree: A pointer to the root node of the tree to measure the size
  *
- * Return: 1 if it is full, otherwise 0
+ * Return: Value of the size of a binary tree
  */
-int binary_tree_is_full(const binary_tree_t *tree)
+size_t binary_tree_size(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
-
-	if (tree->left == NULL && tree->right == NULL)
-		return (1);
-
-	if ((tree->left) && (tree->right))
-		return (binary_tree_is_full(tree->left) &&
-			binary_tree_is_full(tree->right));
-	return (0);
+	else
+		return (binary_tree_size(tree->left) + 1 +
+			binary_tree_size(tree->right));
 }
 
 
@@ -55,22 +49,19 @@ int binary_tree_is_full(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int left_height, right_height;
-	int left_is_full, right_is_full;
+	int size_tree;
+	int height_tree;
 
 	if (tree == NULL)
 		return (0);
-	if (tree->left == NULL && tree->right == NULL)
-		return (0);
 
-	left_height = (int)binary_tree_height(tree->left);
-	right_height = (int)binary_tree_height(tree->right);
-
-	left_is_full = binary_tree_is_full(tree->left);
-	right_is_full = binary_tree_is_full(tree->right);
-
-	if ((left_height == right_height) && (left_is_full == right_is_full))
+	size_tree = (int)binary_tree_size(tree);
+	printf("%d\n", size_tree);
+	height_tree = (int)binary_tree_height(tree);
+	printf("%d\n", height_tree);
+	if (size_tree == (1 << (height_tree + 1)) - 1)
 		return (1);
 	else
 		return (0);
+
 }

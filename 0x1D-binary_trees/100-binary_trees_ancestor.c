@@ -52,10 +52,19 @@ binary_tree_t *binary_trees_ancestor(binary_tree_t *first,
 	if (binary_tree_sibling(first) == second)
 		return (first->parent);
 
+	if (binary_tree_sibling(second) == first)
+		return (second->parent);
+
 	if (binary_tree_uncle(second) == first)
 		return (first->parent);
 
+	if (binary_tree_uncle(first) == second)
+		return (second->parent);
+
 	if (second->parent == first)
 		return (first);
+
+	if (first->parent == second)
+		return (second);
 	return (NULL);
 }

@@ -1,35 +1,18 @@
 #include "binary_trees.h"
 
 /**
- * tree_sibling - A function that finds the sibling of a node
- * @node: A pointer to the node to find the sibling
+ * binary_tree_depth - A function that measures the depth of a node
+ * in a binary tree
+ * @tree: A pointer to the node to measure the depth
  *
- * Return: A pointer to the sibling node
+ * Return: The depth value
  */
-binary_tree_t *tree_sibling(const binary_tree_t *node)
+size_t binary_tree_depth(const binary_tree_t *tree)
 {
-	if (node == NULL || node->parent == NULL)
-		return (NULL);
+	if (tree == NULL || tree->parent == NULL)
+		return (0);
 
-	if (node->parent->left == node && node->parent->right != NULL)
-		return (node->parent->right);
-	if (node->parent->right == node && node->parent->left != NULL)
-		return (node->parent->left);
-	return (NULL);
-}
-
-
-/**
- * tree_uncle - A function that finds the uncle of a node
- * @node: A pointer to the node to find the uncle
- *
- * Return: A pointer to the uncle node
- */
-binary_tree_t *tree_uncle(const binary_tree_t *node)
-{
-	if (node == NULL || node->parent == NULL)
-		return (NULL);
-	return (tree_sibling(node->parent));
+	return (binary_tree_depth(tree->parent) + 1);
 }
 
 
@@ -44,27 +27,37 @@ binary_tree_t *tree_uncle(const binary_tree_t *node)
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 				     const binary_tree_t *second)
 {
+	size_t first_depth;
+	size_t second_depth;
+	size_t gap;
+
 	if (first == NULL || second == NULL)
 		return (NULL);
-	if (first->parent == NULL || second->parent == NULL)
-		return (NULL);
 
-	if (tree_sibling(first) == second)
-		return (first->parent);
+	first_depth = binary_tree_depth(first);
+	second_depth = binary_tree_depth(second);
 
-	if (tree_sibling(second) == first)
-		return (second->parent);
+	if (first_depth > second_depth)
+	{
+		gap = first_depth - second_depth;
+		while (gap--)
+			first = first->parent;
+	}
 
-	if (tree_uncle(second) == first)
-		return (first->parent);
+	if (second_depth > first_depth)
+	{
+		gap = second_depth - first_depth;
+		while (gap--)
+			second = second->parent;
+	}
 
-	if (tree_uncle(first) == second)
-		return (second->parent);
+	while (first != second)
+	{
+		if (first == NULL || second == NULL)
+			return (NULL);
+		first = first->parent;
+		second = second->parent;
+	}
 
-	if (second->parent == first)
-		return ((binary_tree_t *)first);
-
-	if (first->parent == second)
-		return ((binary_tree_t *)second);
-	return (NULL);
+	return ((binary_tree_t *)first);
 }

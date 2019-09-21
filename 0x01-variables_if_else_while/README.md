@@ -53,29 +53,29 @@ What is the size of the `float` data type?
 * 4 bytes
 
 Which of the following are both valid `if` statements in ANSI C and Betty-compliant? (Considering `a` and `b` two variables of type `int`)
-* ```
+```
 if (a > b)
 {
   return (a);
 }
 ```
-* ```
+```
 if (a > b)
   return (a);
 ```
 
 Which of the following are both valid `for` statements in ANSI C and Betty-compliant? (Considering `a` and `b` two variables of type `int`)
-* ```
+```
 for (a = 0; a < b; a++)
 {
     printf("%d\n", a);
 }
 ```
-* ```
+```
 for (a = 0; a < b; a++)
     printf("%d\n", a);
 ```
-* ```
+```
 a = 0;
 for (; a < b;)
 {
@@ -84,7 +84,7 @@ for (; a < b;)
 ```
 
 Which of the following are both valid `while` or `do/while` statements in ANSI C and Betty-compliant? (Considering `a` and `b` two variables of type `int`)
-* ```
+```
 a = 0;
 while (a < b)
 {
@@ -92,14 +92,14 @@ while (a < b)
     a++;
 }
 ```
-* ```
+```
 a = 0;
 do {
     printf("%d\n", a);
     a++;
 } while (a < b);
 ```
-* ```
+```
 a = 0;
 while (a < b)
     printf("%d\n", a++);

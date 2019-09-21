@@ -16,16 +16,16 @@
 * How does the `main` function influence the return value of the program
 
 ### Resources
-* Everything you need to know to start with C
-* Dennis Ritchie
-* “C” Programming Language: Brian Kernighan
-* Why C Programming Is Awesome
-* Learning to program in C part 1
-* Learning to program in C part 2
-* Understanding C program Compilation Process
-* Holberton’s Betty Coding Style
-* Hash-bang under the hood
-* Linus Torvalds on C vs. C++
+* [Everything you need to know to start with C](https://docs.google.com/presentation/d/1ghto-TsXqgPRuEVmiCp7GvGttobdTLF4Yq8IRXwzvHY/edit#slide=id.p)
+* [Dennis Ritchie](https://en.wikipedia.org/wiki/Dennis_Ritchie)
+* [“C” Programming Language: Brian Kernighan](https://www.youtube.com/watch?v=de2Hsvxaf8M)
+* [Why C Programming Is Awesome](https://www.youtube.com/watch?v=smGalmxPVYc)
+* [Learning to program in C part 1](https://www.youtube.com/watch?v=rk2fK2IIiiQ)
+* [Learning to program in C part 2](https://www.youtube.com/watch?v=FwpP_MsZWnU)
+* [Understanding C program Compilation Process](https://www.youtube.com/watch?v=VDslRumKvRA)
+* [Holberton’s Betty Coding Style](https://github.com/holbertonschool/Betty/wiki)
+* [Hash-bang under the hood](https://twitter.com/unix_byte/status/1024147947393495040?s=21)
+* [Linus Torvalds on C vs. C++](http://harmful.cat-v.org/software/c++/linus)
 
 ## Requirements
 
@@ -76,8 +76,9 @@ for argument in "$@" ; do
 done
 ```
 * Once saved, exit file and change permissions to apply to all users with `chmod a+x betty`
-* Move the `betty` file into `/bin/` directory or somewhere else in your $PATH with `sudo mv betty /bin/`
+* Move the `betty` file into `/bin/` directory or somewhere else in your `$PATH` with `sudo mv betty /bin/`
 You can now type `betty <filename>` to run the Betty linter!
+
 
 ## Tasks
 
@@ -247,7 +248,7 @@ julien@ubuntu:~/c/0x00$ echo $?
 julien@ubuntu:~/c/0x00$ 
 ```
 
-### [7. What happens when you type gcc main.c](./100-intel)
+### 7. What happens when you type gcc main.c
 Write a blog post that explains all the steps of compilation. Use command lines and examples to illustrate.
 * Use `gcc` as the compiler
 * Have at least one picture, at the top of the blog post
@@ -255,11 +256,69 @@ Write a blog post that explains all the steps of compilation. Use command lines 
 * Share your blog post at least on Twitter and LinkedIn
 * Please, remember that these blogs must be written in English to further your technical ability in a variety of settings
 
-### [8. Intel](./101-quote.c)
+### [8. Intel](./100-intel)
 Write a script that generates the assembly code (Intel syntax) of a C code and save it in an output file.
 * The C file name will be saved in the variable `$CFILE`.
 * The output file should be named the same as the C file, but with the extension `.s` instead of `.c`.
   * Example: if the C file is `main.c`, the output file should be `main.s`
+```
+julien@ubuntu:~/c/0x00$ export CFILE=main.c
+julien@ubuntu:~/c/0x00$ cat main.c
+#include <stdio.h>
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+    return (0);
+}
+julien@ubuntu:~/c/0x00$ ./100-intel 
+julien@ubuntu:~/c/0x00$ cat main.s
+    .file   "main.c"
+    .intel_syntax noprefix
+    .text
+    .globl  main
+    .type   main, @function
+main:
+.LFB0:
+    .cfi_startproc
+    push    rbp
+    .cfi_def_cfa_offset 16
+    .cfi_offset 6, -16
+    mov rbp, rsp
+    .cfi_def_cfa_register 6
+    mov eax, 0
+    pop rbp
+    .cfi_def_cfa 7, 8
+    ret
+    .cfi_endproc
+.LFE0:
+    .size   main, .-main
+    .ident  "GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"
+    .section    .note.GNU-stack,"",@progbits
+julien@ubuntu:~/c/0x00$ 
+```
+
+### [9. UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity](./101-quote.c)
+* You are not allowed to use any functions listed in the NAME section of the man (3) `printf` or man (3) `puts`
+* Your program should return 1
+* Your program should compile without any warnings when using the `-Wall gcc` option
+```
+julien@ubuntu:~/c/0x00$ gcc -Wall -o quote 101-quote.c
+julien@ubuntu:~/c/0x00$ ./quote
+and that piece of art is useful\" - Dora Korpar, 2015-10-19
+julien@ubuntu:~/c/0x00$ echo $?
+1
+julien@ubuntu:~/c/0x00$ ./quote 2> q
+julien@ubuntu:~/c/0x00$ cat q
+and that piece of art is useful\" - Dora Korpar, 2015-10-19
+julien@ubuntu:~/c/0x00$ grep printf < 101-quote.c
+julien@ubuntu:~/c/0x00$ grep put < 101-quote.c
+julien@ubuntu:~/c/0x00$ 
+```
 
 ## Built With
 * [C](https://en.wikipedia.org/wiki/C_(programming_language)) - Programming language

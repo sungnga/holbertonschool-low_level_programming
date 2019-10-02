@@ -6,6 +6,7 @@
 
 ## Description
 Projects written in C programming language as part of the Holberton School first year curriculum.
+Topics covered include the fundamentals of C programming, data structures and algorithms, and Linux and Unix system programming.
 
 
 PROJECT | DESCRIPTION

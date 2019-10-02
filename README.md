@@ -53,6 +53,6 @@ PROJECT | DESCRIPTION
 
 **Nga La**
 * email: [nga422@gmail.com](nga422@gmail.com)
-* website: [craftedbynga.com](http://www.craftedbynga.com/)
+* website: [www.craftedbynga.com](http://www.craftedbynga.com/)
 * github: [sungnga](https://github.com/sungnga)
 * twitter: [@_ngala](https://twitter.com/_ngala)
